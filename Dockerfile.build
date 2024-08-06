@@ -21,10 +21,10 @@ ARG TRANSLATOR_MODEL_NAME
 ARG LANGUAGE_DETECTOR_MODEL_NAME
 
 RUN pip install huggingface_hub
-RUN python -c \
-    "from huggingface_hub import snapshot_download, hf_hub_download; \
-    snapshot_download('$TRANSLATOR_MODEL_NAME'); \
-    hf_hub_download('$LANGUAGE_DETECTOR_MODEL_NAME', 'model.bin')"
+# RUN python -c \
+#     "from huggingface_hub import snapshot_download, hf_hub_download; \
+#     snapshot_download('$TRANSLATOR_MODEL_NAME'); \
+#     hf_hub_download('$LANGUAGE_DETECTOR_MODEL_NAME', 'model.bin')"
 
 
 FROM caddy:builder-alpine AS caddy-builder

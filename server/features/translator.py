@@ -25,7 +25,8 @@ class Translator:
     __slots__ = ('translator', 'tokeniser', 'lock')
 
     def __init__(self):
-        model_path = huggingface_download(Config.translator_model_name)
+        #model_path = huggingface_download(Config.translator_model_name)
+        model_path = Config.translator_model_name
         options: TranslatorOptions = {
             'model_path': model_path,
             'device': 'cuda' if Config.use_cuda else 'cpu',
