@@ -1,0 +1,22 @@
+services:
+
+  nllbtranslate:
+    image: nllb-api
+    build:
+      context: .
+      dockerfile: Dockerfile.cuda-build
+      args:
+        APP_PORT: 7860
+    env_file: ".env.nllb"    
+    restart: unless-stopped
+    expose: 
+      - "7860"
+    volumes:
+      - ./models:/models
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia   
+              capabilities: [gpu]
+              count: all    

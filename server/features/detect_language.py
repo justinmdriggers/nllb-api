@@ -31,7 +31,7 @@ class LanguageDetector:
         download and load the model
         """
         #model_path = hf_hub_download(Config.language_detector_model_name, 'model.bin')
-        model_path = str(Path(Config.translator_model_name) / "model.bin")
+        model_path = str(Path(Config.language_detector_model_name) /  'model.bin')
         cls.model: _FastText = load_model(model_path)
 
     @classmethod
