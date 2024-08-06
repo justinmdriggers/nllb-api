@@ -4,7 +4,7 @@ from huggingface_hub import hf_hub_download
 
 from server.config import Config
 from server.features.types.languages import Languages
-
+from pathlib import Path
 
 class LanguageDetector:
     """
@@ -31,7 +31,7 @@ class LanguageDetector:
         download and load the model
         """
         #model_path = hf_hub_download(Config.language_detector_model_name, 'model.bin')
-        model_path = Config.translator_model_name + "/model.bin"
+        model_path = str(Path(Config.translator_model_name) / "model.bin")
         cls.model: _FastText = load_model(model_path)
 
     @classmethod
