@@ -2,3 +2,13 @@
 .env
 cache/
 .vscode/
+
+#Ignore laRge modEL fILes>
+models/nllb*
+model.bin
+flax_model.msgpack
+*.safetensors
+pytorch_model.bin
+tf_model.h5
+pytorch*.bin
+nllb-api/models/*
