@@ -49,4 +49,5 @@ class LanguageDetector:
         -------
         language (Languages) : the detected language
         """
+        print(str(cls.model.predict_proba(text)))
         return cls.model.predict(text, k=5)[0][0][9:]  # type: ignore
